@@ -24,15 +24,15 @@ Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니�
 ### 1️⃣ 설치
 
 1. GitHub에서 패키지를 클론하거나 ZIP으로 다운로드  
-       git clone https://github.com/tachanka1208/Chicago_ko.git
+       ```git clone https://github.com/tachanka1208/Chicago_ko.git```
 
 2. `.bbx`, `.cbx`, `.lbx` 파일을 LaTeX 프로젝트의 루트 폴더에 복사  
-       yourproject/
+      ``` yourproject/
        │
        ├── main.tex
        ├── chicago_ko.bbx
        ├── chicago_ko.cbx
-       └── chicago_ko.lbx
+       └── chicago_ko.lbx```
 
 3. Biber 엔진을 사용하도록 설정  
    (Overleaf에서는 Settings → Compiler → `biber` 선택)
