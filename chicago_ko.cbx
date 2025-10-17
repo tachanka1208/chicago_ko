@@ -1,0 +1,97 @@
+% chicago_ko.cbx
+% Version: v0.1 (2025/10/17)
+% Description: Korean Chicago Citation Style (Notes & Bibliography)
+% Features: 한국식 각주 인용, ibid 한글화
+
+\ProvidesFile{chicago_ko.cbx}[2025/10/17 v0.1 Korean Chicago Citation Style]
+
+% Load base Chicago citation style
+\RequireCitationStyle{chicago}
+
+% ------------------------------------------------
+% BASIC SETTINGS
+% ------------------------------------------------
+\ExecuteBibliographyOptions{
+  autocite=footnote,  % \autocite -> footnote
+  ibidtracker=context, % ibid rules
+}
+
+% ------------------------------------------------
+% LOCALIZED STRINGS
+% ------------------------------------------------
+\DefineBibliographyStrings{korean}{
+  ibidem   = {이전 자료와 같음},
+  idem     = {같은 저자},
+  idemsm   = {같은 저자},
+  idemfem  = {같은 저자},
+  ibidemname = {이전 자료와 같음},
+  page     = {쪽},
+  pages    = {쪽},
+}
+
+% ------------------------------------------------
+% CUSTOM MACROS
+% ------------------------------------------------
+
+% 한글 이름 순서 (성 + 이름 그대로 유지)
+\DeclareNameAlias{author}{given-family}
+
+% ibid 표시 방식
+\renewbibmacro*{cite:ibid}{%
+  \bibstring{ibidem}% -> "이전 자료와 같음"
+  \ifbool{cbx:loccit}{%
+    \setunit{\addcomma\space}%
+    \printfield{postnote}%
+  }{%
+    \ifboolexpr{test {\iffieldundef{postnote}}}
+      {}
+      {\setunit{\addcomma\space}\printfield{postnote}}%
+  }%
+}
+
+% ------------------------------------------------
+% MAIN CITATION MACRO
+% ------------------------------------------------
+\renewbibmacro*{cite:short}{%
+  \printnames{labelname}%
+  \setunit{\addcomma\space}%
+  \printfield[citetitle]{title}%
+  \ifboolexpr{test {\iffieldundef{year}}}
+    {}
+    {\addcomma\space\printfield{year}}%
+  \ifboolexpr{test {\iffieldundef{postnote}}}
+    {}
+    {\addcomma\space\printfield{postnote}}%
+}
+
+% ------------------------------------------------
+% FULL CITATION (첫 인용시)
+% ------------------------------------------------
+\renewbibmacro*{cite:full}{%
+  \printnames{author}%
+  \addcomma\space
+  \printfield[title]{title}%
+  \iffieldundef{journaltitle}{}{%
+    \addcomma\space\printfield{journaltitle}}%
+  \iffieldundef{organization}{}{%
+    \addcomma\space\printfield{organization}}%
+  \iffieldundef{publisher}{}{%
+    \addcomma\space\printlist{publisher}}%
+  \iffieldundef{year}{}{%
+    \addcomma\space\printfield{year}}%
+  \iffieldundef{pages}{}{%
+    \addcomma\space\printfield{pages}}%
+  \iffieldundef{postnote}{}{%
+    \addcomma\space\printfield{postnote}}%
+}
+
+% ------------------------------------------------
+% AUTOCITE HANDLING
+% ------------------------------------------------
+\renewbibmacro*{autocite:footnote}{%
+  \footcite{\thefield{entrykey}}%
+}
+
+% ------------------------------------------------
+% END OF FILE
+% ------------------------------------------------
