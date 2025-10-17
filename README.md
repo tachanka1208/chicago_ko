@@ -24,7 +24,7 @@ Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니�
 ### 1️⃣ 설치
 
 1. GitHub에서 패키지를 클론하거나 ZIP으로 다운로드  
-       git clone https://github.com/[username]/Chicago_ko.git
+       git clone https://github.com/tachanka1208/Chicago_ko.git
 
 2. `.bbx`, `.cbx`, `.lbx` 파일을 LaTeX 프로젝트의 루트 폴더에 복사  
        yourproject/
@@ -83,6 +83,7 @@ Chicago_ko는 **Vim, Neovim, 또는 CLI 환경**에서도 완전히 동일하게
     brew install --cask mactex
 
 #### Windows
+0. 
 1. https://tug.org/texlive/ 에서 TeX Live 설치  
 2. 설치 시 “biber” 패키지를 포함시킬 것  
 3. 환경 변수 PATH에 `C:\texlive\2025\bin\win32` 추가
