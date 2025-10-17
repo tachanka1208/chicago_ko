@@ -1,0 +1,65 @@
+% chicago_ko.lbx
+% Version: v0.1 (2025/10/17)
+% Description: Korean language definitions for the Chicago_ko style
+
+\ProvidesFile{chicago_ko.lbx}[2025/10/17 v0.1 Korean localization for Chicago_ko]
+
+% ------------------------------------------------
+% BASE INHERITANCE
+% ------------------------------------------------
+% inherit from English strings, then override selectively
+\InheritBibliographyExtras{english}
+\DeclareBibliographyStrings{%
+  inherit          = {english},
+
+  % --- General Terms ---
+  and              = {그리고},
+  andothers        = {외},
+  byeditor         = {편},
+  edition          = {판},
+  editor           = {편},
+  editors          = {편},
+  translator       = {역},
+  translationof    = {번역},
+  pages            = {쪽},
+  page             = {쪽},
+  volume           = {권},
+  number           = {호},
+  in               = {수록},
+  inseries         = {수록},
+  series           = {총서},
+
+  % --- Notes & Repeated Citation Terms ---
+  ibidem           = {이전 자료와 같음},
+  ibidemname       = {이전 자료와 같음},
+  idem             = {같은 저자},
+  idemsm           = {같은 저자},
+  idemfem          = {같은 저자},
+  opcit            = {앞의 책},
+  loccit           = {같은 곳},
+  citedas          = {이하 약칭},
+  seealso          = {참조},
+  quotedin         = {재인용},
+
+  % --- Online / Web ---
+  urlseen          = {검색일자},
+  available        = {접근 가능},
+  urlfrom          = {출처},
+  retrieved        = {검색함},
+  online           = {온라인},
+  accessed         = {검색},
+  from             = {에서},
+
+  % --- Miscellaneous ---
+  anonymous        = {익명},
+  compiler         = {엮음},
+  revision         = {개정},
+  forthcoming      = {출간 예정},
+  inpress          = {출판 예정},
+  submitted        = {제출됨},
+  reprint          = {재판},
+  print            = {인쇄},
+  note             = {비고},
+  date             = {날짜},
+  url              = {인터넷 주소},
+}
