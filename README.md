@@ -1,4 +1,4 @@
-# Chicago_ko — Korean Chicago Citation Style
+# Chicago-ko — Korean Chicago Citation Style
 
 Version: v0.1  
 Author: [Your Name]  
@@ -8,7 +8,7 @@ License: MIT
 
 ## 📘 개요
 
-Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니다.  
+Chicago-ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니다.  
 기존 `biblatex-chicago`를 기반으로, 한국 학술 환경에 맞게 다음 요소를 수정하였습니다:
 
 - 📚 인용 규칙: 각주(footnote) 방식 기본 설정 (`autocite=footnote`)
@@ -24,15 +24,15 @@ Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니�
 ### 1️⃣ 설치
 
 1. GitHub에서 패키지를 클론하거나 ZIP으로 다운로드  
-       ```git clone https://github.com/tachanka1208/Chicago_ko.git```
+       ```git clone https://github.com/tachanka1208/Chicago-ko.git```
 
 2. `.bbx`, `.cbx`, `.lbx` 파일을 LaTeX 프로젝트의 루트 폴더에 복사  
       ``` yourproject/
        │
        ├── main.tex
-       ├── chicago_ko.bbx
-       ├── chicago_ko.cbx
-       └── chicago_ko.lbx```
+       ├── Chicago-ko.bbx
+       ├── Chicago-ko.cbx
+       └── Chicago-ko.lbx```
 
 3. Biber 엔진을 사용하도록 설정  
    (Overleaf에서는 Settings → Compiler → `biber` 선택)
@@ -41,7 +41,7 @@ Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니�
 
 ### 2️⃣ 문서 설정
 
-    \usepackage[backend=biber,style=chicago_ko]{biblatex}
+    \usepackage[backend=biber,style=Chicago-ko]{biblatex}
     \addbibresource{sample.bib}
 
 본문 인용 예시:
@@ -70,7 +70,7 @@ Chicago_ko는 **BibLaTeX 기반의 한국어 시카고 인용 스타일**입니�
 
 ## 💻 오프라인 환경 설정 (Offline Environment)
 
-Chicago_ko는 **Vim, Neovim, 또는 CLI 환경**에서도 완전히 동일하게 작동합니다.  
+Chicago-ko는 **Vim, Neovim, 또는 CLI 환경**에서도 완전히 동일하게 작동합니다.  
 인터넷 연결이 필요하지 않으며, 모든 인용 처리는 Biber가 로컬에서 수행합니다.
 
 ---
@@ -168,7 +168,7 @@ Vim에서 `\ll` 명령으로 자동 컴파일 및 PDF 미리보기 가능.
 
 `.tex` 문서에서는 다음처럼 호출:
 
-    \usepackage[backend=biber,style=chicago_ko]{biblatex}
+    \usepackage[backend=biber,style=Chicago-ko]{biblatex}
     \addbibresource{references.bib}
 
 이후 위의 컴파일 절차를 따르면, 외부 네트워크 없이도 BibLaTeX–Biber가 완전 작동합니다.
@@ -177,14 +177,14 @@ Vim에서 `\ll` 명령으로 자동 컴파일 및 PDF 미리보기 가능.
 
 ## 📁 디렉토리 구조
 
-chicago_ko/
+Chicago-ko/
 │
-├── chicago_ko.bbx  
-├── chicago_ko.cbx  
-├── chicago_ko.lbx  
+├── Chicago-ko.bbx  
+├── Chicago-ko.cbx  
+├── Chicago-ko.lbx  
 ├── examples/  
 │   ├── sample.bib  
-│   └── chicago_ko-test.tex  
+│   └── Chicago-ko-test.tex  
 └── README.md  
 
 ---
