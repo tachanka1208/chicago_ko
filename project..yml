@@ -1,0 +1,15 @@
+name: Chicago_ko
+version: 0.1
+description: Korean Chicago Citation Style for BibLaTeX
+authors:
+  - name: [Your Name]
+license: MIT
+dependencies:
+  - biblatex
+  - biber
+language: Korean
+targets:
+  - pdf
+  - tex
+repository: https://github.com/[username]/Chicago_ko
+status: inDevelopment
