@@ -1,0 +1,92 @@
+% chicago_ko.bbx
+% Version: v0.1 (2025/10/17)
+% Description: Korean adaptation of Chicago (Notes & Bibliography) for books, articles, and online sources
+
+\ProvidesFile{chicago_ko.bbx}[2025/10/17 v0.1 Korean Chicago Style]
+
+% Load base style
+\RequireBibliographyStyle{chicago}
+
+% ------------------------------------------------
+% FIELD FORMATTING
+% ------------------------------------------------
+
+% 제목 서식
+\DeclareFieldFormat[book]{title}{『#1』}
+\DeclareFieldFormat[article]{title}{「#1」}
+\DeclareFieldFormat[incollection]{title}{「#1」}
+\DeclareFieldFormat[online]{title}{「#1」}
+
+% 페이지 및 공통 필드
+\DeclareFieldFormat{pages}{#1쪽}
+\DeclareFieldFormat{edition}{#1판}
+\DeclareFieldFormat{translator}{#1 역}
+\DeclareFieldFormat{url}{#1}
+\DeclareFieldFormat{urldate}{#1 검색}
+
+% 문장 부호 조정
+\renewcommand*{\newunitpunct}{\addcomma\space}
+
+% ------------------------------------------------
+% BOOK DRIVER
+% ------------------------------------------------
+\DeclareBibliographyDriver{book}{%
+  \printnames{author}%
+  \addcomma\space
+  \printfield[book]{title}%
+  \addcomma\space
+  \printlist{publisher}%
+  \addcomma\space
+  \printfield{year}%
+  \iffieldundef{pages}{}{\addcomma\space\printfield{pages}}%
+  \finentry
+}
+
+% ------------------------------------------------
+% ARTICLE DRIVER
+% ------------------------------------------------
+\DeclareBibliographyDriver{article}{%
+  \printnames{author}%
+  \addcomma\space
+  \printfield[article]{title}%
+  \addcomma\space
+  \printfield{journaltitle}%
+  \iffieldundef{volume}{}{\addcomma\space\printfield{volume}}%
+  \iffieldundef{number}{}{\addcomma\space\printfield{number}}%
+  \iffieldundef{institution}{}{\addcomma\space\printlist{institution}}%
+  \addcomma\space
+  \printfield{year}%
+  \iffieldundef{pages}{}{\addcomma\space\printfield{pages}}%
+  \finentry
+}
+
+% ------------------------------------------------
+% ONLINE DRIVER
+% ------------------------------------------------
+\DeclareBibliographyDriver{online}{%
+  \printnames{author}%
+  \addcomma\space
+  \printfield[online]{title}%
+  \addcomma\space
+  \printfield{organization}%
+  \addcomma\space
+  \printfield{url}%
+  \addcomma\space
+  \printfield{urldate}%
+  \finentry
+}
+
+% ------------------------------------------------
+% FALLBACK FOR MISC
+% ------------------------------------------------
+\DeclareBibliographyDriver{misc}{%
+  \printnames{author}%
+  \iffieldundef{title}{}{\addcomma\space\printfield{title}}%
+  \iffieldundef{howpublished}{}{\addcomma\space\printfield{howpublished}}%
+  \iffieldundef{year}{}{\addcomma\space\printfield{year}}%
+  \finentry
+}
+
+% ------------------------------------------------
+% END OF FILE
+% ------------------------------------------------
